@@ -1,0 +1,41 @@
+  #include<stdio.h>
+  #include<conio.h>
+  #include<math.h>
+  #include<stdlib.h>
+  int evaluate (int[],int,int);
+  void main()
+  {
+  int a[10],n,x,i,e;
+  clrscr();
+  printf("\n enter the degree of polynomial=");
+  scanf("%d",&n);
+  printf("\n\n enter coefficient\n");
+  for(i=n;i>=0;i--)
+  {
+  printf("\n\n coefficient of a[%d]=\t",i);
+  scanf("%d",&a[i]);
+  }
+  printf("\n\n given polynomial is=");
+  for(i=n;i>0;i--)
+  {
+  if(a[i]!=0)
+  {
+  printf("%dx^%d+",a[i],i);
+  }
+  }
+  printf("%d",a[i]);
+  printf("\n\n enter the value of x=");
+  scanf("%d",&x);
+  e=evaluate(a,n,x);
+  printf("\n evaluation of polynomial=\t%d",e);
+  getch();
+  }
+  int evaluate(int a[],int n,int x)
+  {
+  int sum=0,i;
+  for(i=n;i>=0;i--)
+  {
+  sum=sum+a[i]*pow(x,i);
+  }
+  return sum;
+  }
