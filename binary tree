@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<conio.h>
+
+#define NA (struct node*)malloc(sizeof(struct node))
+struct node
+{
+    int data;
+    struct node *left,*right;
+};
+typedef struct node *NP;
+
+NP create(){
+    NP temp,root=NULL,nn;
+    int i,n;
+    printf("Enter how many data you want to store");
+    scanf("%d",&n);
+    printf("\nEnter data");
+    for(i=0 ; i<n ; i++){
+        nn = NA;
+        nn->left = nn->right = NULL;
+        scanf("%d",&nn->data);
+        if(root==NULL){
+            temp = root = nn;
+        }
+        else{
+            if(nn->data > temp->data){
+                temp->right = nn;
+                temp=nn;
+                
+            }
+            else{
+                temp->left = nn;
+                temp=nn;
+            }
+        }
+    } return root;
+}
+void inorder(struct node *root) {
+  if (root != NULL) {
+    // Traverse left
+    inorder(root->left);
+
+    // Traverse root
+    printf("%d -> ", root->data);
+
+    // Traverse right
+    inorder(root->right);
+  }
+}
+int main(){
+    NP root = NULL;
+    int ch;
+    do{
+        printf("\n\n1:Create");
+        printf("\n\n2:Display"); 
+        printf("\n\n3:End"); 
+        
+        printf("\n\nEnter your Choice: ");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1:
+                root = create();
+                break;
+            case 2:
+                inorder(root);
+                break;
+           
+            case 3:
+                exit(0);
+                break;
+        }
+
+    }while(ch!=3);
+    return 0;
+
+}
