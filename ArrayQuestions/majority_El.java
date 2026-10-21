@@ -21,6 +21,7 @@ class majority_El{
     // [1,2,2,3,3,3]
     // o/p : 3
     int[] n = {1,2,2,3,3,3,2,2,2,2};
-    System.out.println(majorityEl(n));
+    // System.out.println(majorityEl(n));
+    System.out.println(-n[0]);
   }
 }
